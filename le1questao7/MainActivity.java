@@ -1,55 +1,47 @@
 package com.example.le1questao7;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Funcionario> funcionarios = new ArrayList<>();
-    private EditText editTextCodigo;
-    private EditText editTextNome;
-    private Spinner spinnerGenero;
-    private EditText editTextIdade;
-    private EditText editTextCargo;
-    private Button btnCadastrar, btnApresentar;
+
+    List<Funcionario> funcionarios = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editTextCodigo = findViewById(R.id.editText_Codigo);
-        editTextNome = findViewById(R.id.editText_Nome);
-        spinnerGenero = findViewById(R.id.spinner_Genero);
-        editTextIdade = findViewById(R.id.editText_Idade);
-        editTextCargo = findViewById(R.id.editText_Cargo);
-        btnCadastrar = findViewById(R.id.button_Salvar);
+        Button btnCadastrar = findViewById(R.id.button_Cadastrar);
+        Button btnAtualizar = findViewById(R.id.button_Atualizar);
+        ListView listViewFuncionarios = findViewById(R.id.listViewFunc);
+
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                editTextCodigo.getText();
-                editTextNome.getText();
-                editTextIdade.getText();
-                editTextCargo.getText();
-                spinnerGenero.getSelectedItemPosition();
-
-                funcionarios.add(new Funcionario());
+            public void onClick(View view) {
+                Funcionario func1 = new Funcionario(1, "Walter", "M", "Cientista");
+                funcionarios.add(func1);
             }
         });
 
-        btnApresentar = findViewById(R.id.button_Apresentar);
-        btnApresentar.setOnClickListener(new View.OnClickListener() {
+        btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, MostrarFuncionarios.class);
-                startActivity(intent);
+                ArrayAdapter<Funcionario> funcionarioArrayAdapter;
+                funcionarioArrayAdapter = new ArrayAdapter<>(
+                        MainActivity.this,
+                        android.R.layout.simple_list_item_1,
+                        funcionarios);
+
+                    listViewFuncionarios.setAdapter(funcionarioArrayAdapter);
             }
         });
     }

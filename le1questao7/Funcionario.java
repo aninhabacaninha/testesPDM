@@ -4,17 +4,12 @@ public class Funcionario {
     private int codigo;
     private String nome;
     private String sexo;
-    private int idade;
     private String cargo;
 
-    public Funcionario() {
-    }
-
-    public Funcionario(int codigo, String nome, String sexo, int idade, String cargo) {
+    public Funcionario(int codigo, String nome, String sexo, String cargo) {
         this.codigo = codigo;
         this.nome = nome;
         this.sexo = sexo;
-        this.idade = idade;
         this.cargo = cargo;
     }
 
@@ -42,19 +37,21 @@ public class Funcionario {
         this.sexo = sexo;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
     public String getCargo() {
         return cargo;
     }
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "codigo=" + codigo +
+                ", nome='" + nome + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", cargo='" + cargo + '\'' +
+                '}';
     }
 }
