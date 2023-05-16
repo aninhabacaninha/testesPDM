@@ -2,6 +2,7 @@ package com.example.le1questao7;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,35 +14,38 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Funcionario> funcionarios = new ArrayList<>();
+    public static List<Funcionario> funcionarios = new ArrayList<>();
+
+    Button btnCadastrar;
+    Button btnAtualizar;
+    ListView listViewFuncionarios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnCadastrar = findViewById(R.id.button_Cadastrar);
-        Button btnAtualizar = findViewById(R.id.button_Atualizar);
-        ListView listViewFuncionarios = findViewById(R.id.listViewFunc);
+        btnCadastrar = findViewById(R.id.button_Cadastrar);
+        btnAtualizar = findViewById(R.id.button_Atualizar);
+        listViewFuncionarios = findViewById(R.id.listViewFunc);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Funcionario func1 = new Funcionario(1, "Walter", "M", "Cientista");
-                funcionarios.add(func1);
+            public void onClick(View v) {
+                Intent it = new Intent(MainActivity.this, CadastraFuncionarioActivity.class);
+                startActivity(it);
             }
         });
 
         btnAtualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayAdapter<Funcionario> funcionarioArrayAdapter;
-                funcionarioArrayAdapter = new ArrayAdapter<>(
+                ListaFuncionariosAdapter listaFuncionariosAdapter = new ListaFuncionariosAdapter(
                         MainActivity.this,
-                        android.R.layout.simple_list_item_1,
-                        funcionarios);
+                        funcionarios
+                );
 
-                    listViewFuncionarios.setAdapter(funcionarioArrayAdapter);
+                listViewFuncionarios.setAdapter(listaFuncionariosAdapter);
             }
         });
     }

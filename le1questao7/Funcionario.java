@@ -1,12 +1,18 @@
 package com.example.le1questao7;
 
+import java.util.Objects;
+
 public class Funcionario {
     private int codigo;
     private String nome;
-    private String sexo;
+    private char sexo;
     private String cargo;
 
-    public Funcionario(int codigo, String nome, String sexo, String cargo) {
+    public Funcionario() {
+
+    }
+
+    public Funcionario(int codigo, String nome, char sexo, String cargo) {
         this.codigo = codigo;
         this.nome = nome;
         this.sexo = sexo;
@@ -17,9 +23,7 @@ public class Funcionario {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
+    public void setCodigo(int codigo) { this.codigo = codigo; }
 
     public String getNome() {
         return nome;
@@ -29,11 +33,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
@@ -43,6 +47,14 @@ public class Funcionario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Funcionario that = (Funcionario) o;
+        return codigo == that.codigo;
     }
 
     @Override
