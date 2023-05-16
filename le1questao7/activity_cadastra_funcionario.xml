@@ -7,62 +7,76 @@
     tools:context=".CadastraFuncionarioActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/activity_cadastro_button_cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="CADASTRAR"
+        android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_cadastro_editText_cargo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/activity_cadastro_editText_codigo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toTopOf="@+id/activity_cadastro_editText_Nome"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/activity_cadastro_editText_Nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="@+id/activity_cadastro_editText_codigo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/activity_cadastro_editText_codigo"
+        app:layout_constraintTop_toBottomOf="@id/activity_cadastro_editText_codigo"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/activity_cadastro_editText_cargo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintBottom_toTopOf="@+id/activity_cadastro_button_cadastrar"
+        app:layout_constraintEnd_toEndOf="@id/radioGroup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
+    <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/activity_cadastro_editText_cargo"
+        app:layout_constraintEnd_toEndOf="@id/activity_cadastro_editText_Nome"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/activity_cadastro_editText_Nome"
+        app:layout_constraintTop_toBottomOf="@id/activity_cadastro_editText_Nome">
+
+        <RadioButton
+            android:id="@+id/activity_cadastro_rbMasculino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masculino" />
+
+        <RadioButton
+            android:id="@+id/activity_cadastro_rbFeminino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feminino" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
