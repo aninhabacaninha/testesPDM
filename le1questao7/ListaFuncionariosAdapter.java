@@ -12,11 +12,12 @@ import java.util.List;
 
 public class ListaFuncionariosAdapter extends BaseAdapter {
     Context context;
-    List<Funcionario> funcionarios = new ArrayList<>();
+    List<Funcionario> funcionarios;
 
-    public ListaFuncionariosAdapter(Context context, List<Funcionario> funcionarios) {
+    public ListaFuncionariosAdapter(Context context) {
         this.context = context;
-        this.funcionarios = funcionarios;
+        FuncionarioController funcionarioController = FuncionarioController.getInstancia();
+        this.funcionarios = funcionarioController.buscarTodos();
     }
 
     @Override

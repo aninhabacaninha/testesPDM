@@ -1,8 +1,10 @@
 package com.example.le1questao7;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Funcionario {
+public class Funcionario implements Serializable {
+
     private int codigo;
     private String nome;
     private char sexo;
