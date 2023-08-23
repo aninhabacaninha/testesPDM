@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroActivity">
+
+    <EditText
+        android:id="@+id/editText_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="102dp" />
+
+    <EditText
+        android:id="@+id/editText_idade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Idade"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/editText_nome"
+        tools:layout_editor_absoluteX="102dp" />
+
+    <EditText
+        android:id="@+id/editText_datanascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Data de nascimento"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/editText_idade"
+        tools:layout_editor_absoluteX="102dp" />
+
+    <Button
+        android:id="@+id/btnCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Cadastrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_datanascimento"
+        app:layout_constraintVertical_bias="0.003"
+        tools:layout_editor_absoluteX="150dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
